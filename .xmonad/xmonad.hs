@@ -27,7 +27,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm, xK_p), GridSelect.spawnSelected GridSelect.defaultGSConfig [ "eclipse", "chromium" ])
+    , ((modm, xK_p), GridSelect.spawnSelected GridSelect.defaultGSConfig [ "eclipse", "chromium", "firefox" ])
 
     -- launch editor
     , ((modm .|. shiftMask, xK_comma ), spawn "vim")
