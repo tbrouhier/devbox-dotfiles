@@ -28,6 +28,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_t), spawn $ XMonad.terminal conf)
     , ((modm, xK_t), spawn $ XMonad.terminal conf)
 
+    -- launch README
+    , ((0, xK_F1 ), spawn "chromium https://github.com/CIRB/devbox/blob/master/README.md#devbox")
+
     -- launch dmenu
     , ((modm, xK_p), GridSelect.spawnSelected GridSelect.defaultGSConfig [ "eclipse", "chromium", "firefox" ])
 
