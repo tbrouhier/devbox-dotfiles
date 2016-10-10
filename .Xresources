@@ -60,6 +60,10 @@ URxvt.cursorUnderline:      false
 ! Pointer
 URxvt.pointerBlank:         true
 
+
+URxvt*background:             #fdf6e3
+URxvt*foreground:             #657b83
+
 ! black
 *color0:  #2E3436
 *color8:  #555753
@@ -84,4 +88,3 @@ URxvt.pointerBlank:         true
 ! white
 *color7:  #babdb9
 *color15: #EEEEEC
-
