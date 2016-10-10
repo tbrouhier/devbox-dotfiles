@@ -1,0 +1,12 @@
+URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true
+URxvt*boldFont: xft:Source\ Code\ Pro\ Medium:pixelsize=14:bold:antialias=true:hinting=true
+
+URxvt*background:             #fdf6e3
+URxvt*foreground:             #657b83
+URxvt*cursorColor:            #586e75
+URxvt*pointerColorBackground: #93a1a1
+URxvt*pointerColorForeground: #586e75
+URxvt*scrollColor:            93a1a1
+URxvt*borderColor:            #fdf6e3
+
+URxvt*color12: #2c515e
