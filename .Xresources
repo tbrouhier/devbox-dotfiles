@@ -55,8 +55,6 @@ URxvt.keysym.C-S-Down:         font-size:decrease
 URxvt.keysym.C-0:              font-size:reset
 URxvt.font-size.step:          4
 
-! URxvt.clipboard.autocopy:      true
-
 URxvt*background:              #fdf6e3
 URxvt*foreground:              #657b83
 
