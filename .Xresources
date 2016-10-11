@@ -2,31 +2,45 @@
 ! Xft settings
 !-------------------------------------------------------------------------------
 
-! Xft.dpi:                    106
-! Xft.autohint:               0
-Xft.antialias:              true
-Xft.rgba:                   rgb
-Xft.hinting:                true
-! Xft.hintstyle:              hintmedium
-Xft.lcdfilter:              lcddefault
+Xft.antialias:                 true
+Xft.rgba:                      rgb
+Xft.hinting:                   true
+Xft.lcdfilter:                 lcddefault
+! Xft.dpi:                       106
+! Xft.hintstyle:                 hintmedium
+! Xft.autohint:                  0
 
-URxvt.termName:             rxvt-256color
-URxvt.iso14755:             False
-URxvt.depth:                32
-! URxvt.geometry:             90x30
-URxvt.transparent:          false
-URxvt.fading:               1
-! URxvt.urgentOnBell:         true
-! URxvt.visualBell:           true
-URxvt.loginShell:           true
-URxvt.saveLines:            500
-! URxvt.internalBorder:       0
-URxvt.lineSpace:            0
-URxvt.urlLauncher:          chromium
+URxvt.termName:                rxvt-256color
+URxvt.iso14755:                False
+URxvt.depth:                   32
+URxvt.transparent:             false
+URxvt.fading:                  1
+URxvt.loginShell:              true
+URxvt.saveLines:               500
+URxvt.lineSpace:               0
+URxvt.urlLauncher:             chromium
+! URxvt.internalBorder:          0
+! URxvt.geometry:                90x30
+! URxvt.urgentOnBell:            true
+! URxvt.visualBell:              true
 
-! Perl extensions
-URxvt.perl-ext-common:      default,matcher,font-size,color-themes,clipboard
-URxvt.matcher.button:       1
+URxvt.pointerBlank:            true
+
+! Fonts
+URxvt.allow_bold:              true
+URxvt*font:                    xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true
+URxvt*boldFont:                xft:Source Code Pro for Powerline-10:bold
+URxvt.borderless:              true
+URxvt.scrollStyle:             rxvt
+URxvt.scrollBar:               false
+! URxvt*letterSpace: 0.5
+
+URxvt.cursorBlink:             false
+URxvt.cursorColor:             #657b83
+URxvt.cursorUnderline:         false
+
+URxvt.perl-ext-common:         default,matcher,font-size,color-themes,selection_to_clipboard
+URxvt.matcher.button:          1
 
 URxvt.color-themes.state-file: ~/.urxvt-theme
 URxvt.color-themes.autosave:   1
@@ -36,55 +50,34 @@ URxvt.color-themes.themedir:   ~/.config/urxvt/themes
 URxvt.keysym.M-C-n:            perl:color-themes:next
 URxvt.keysym.M-C-p:            perl:color-themes:prev
 
-URxvt.keysym.C-S-Up:     font-size:increase
-URxvt.keysym.C-S-Down:   font-size:decrease
-URxvt.keysym.C-0:        font-size:reset
+URxvt.keysym.C-S-Up:           font-size:increase
+URxvt.keysym.C-S-Down:         font-size:decrease
+URxvt.keysym.C-0:              font-size:reset
+URxvt.font-size.step:          4
 
-URxvt.font-size.step: 4
+! URxvt.clipboard.autocopy:      true
 
-URxvt.clipboard.autocopy: true
-
-! Fonts
-URxvt.allow_bold:           true
-URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true
-URxvt*boldFont: xft:Source Code Pro for Powerline-10:bold
-! Fix font space
-! URxvt*letterSpace: 0.5
-URxvt.borderless:           true
-! Scrollbar
-URxvt.scrollStyle:          rxvt
-URxvt.scrollBar:            false
-
-! Cursor
-URxvt.cursorBlink:          false
-URxvt.cursorColor:          #657b83
-URxvt.cursorUnderline:      false
-
-! Pointer
-URxvt.pointerBlank:         true
-
-
-URxvt*background:           #fdf6e3
-URxvt*foreground:           #657b83
+URxvt*background:              #fdf6e3
+URxvt*foreground:              #657b83
 
 ! red
-*color1:  #a40000
-*color9:  #EF2929
+*color1:                       #a40000
+*color9:                       #EF2929
 ! green
-*color2:  #4E9A06
-*color10: #8AE234
+*color2:                       #4E9A06
+*color10:                      #8AE234
 ! yellow
-*color3:  #C4A000
-*color11: #FCE94F
+*color3:                       #C4A000
+*color11:                      #FCE94F
 ! blue
-*color4:  #3465A4
-*color12: #729FCF
+*color4:                       #3465A4
+*color12:                      #729FCF
 ! purple
-*color5:  #75507B
-*color13: #AD7FA8
-! orange (replaces cyan)
-*color6:  #ce5c00
-*color14: #fcaf3e
+*color5:                       #75507B
+*color13:                      #AD7FA8
+! orange                       (replaces cyan)
+*color6:                       #ce5c00
+*color14:                      #fcaf3e
 ! white
-*color7:  #babdb9
-*color15: #EEEEEC
+*color7:                       #babdb9
+*color15:                      #EEEEEC
