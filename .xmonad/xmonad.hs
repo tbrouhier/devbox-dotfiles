@@ -170,7 +170,7 @@ main = do
       }
 
     myConfig  = defaultConfig
-      { terminal           = "xfce4-terminal"
+      { terminal           = "urxvt"
       , focusFollowsMouse  = False
       , borderWidth        = 1
       , modMask            = mod4Mask
