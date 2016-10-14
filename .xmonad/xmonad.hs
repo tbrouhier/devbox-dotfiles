@@ -19,7 +19,7 @@ import qualified XMonad.StackSet              as W
 -- .|. is xmonad specific : it is a bitwise "or"
 
 
--- Key bindings. 
+-- Key bindings.
 -- myKeys return a Map (associative list)
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
@@ -29,7 +29,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_t), spawn $ XMonad.terminal conf)
 
     -- launch README
-    , ((0, xK_F1 ), spawn "chromium https://github.com/CIRB/devbox/blob/master/README.adoc#devbox")
+    , ((0, xK_F1 ), spawn "chromium file:///home/vagrant/.local/share/doc/devbox.html")
 
     -- launch dmenu
     , ((modm, xK_p), GridSelect.spawnSelected GridSelect.defaultGSConfig [ "eclipse", "chromium", "firefox" ])
