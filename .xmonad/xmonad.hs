@@ -147,8 +147,9 @@ myLayout = Mirror zoomRow ||| Mirror tiled ||| zoomRow ||| Full ||| tiled
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 --
-myStartupHook = setWMName "LG3D"
-
+myStartupHook = do
+  setWMName "LG3D"
+  spawnOnce "stalonetray"
 
 azertyKeys conf@(XConfig {modMask = modm}) = M.fromList $
     [((modm, xK_semicolon), sendMessage (IncMasterN (-1)))]
@@ -157,14 +158,14 @@ azertyKeys conf@(XConfig {modMask = modm}) = M.fromList $
         | (i, k) <- zip (workspaces conf) [0x26,0xe9,0x22,0x27,0x28,0xa7,0xe8,0x21,0xe7,0xe0],
           (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
-main = do
+main = 
   xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
 
   where
     toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
     myPP = xmobarPP
-      { ppCurrent = xmobarColor "white" "" . wrap "[" "]"
+      { ppCurrent = xmobarColor "orange" "" . wrap "[" "]"
       , ppTitle = xmobarColor "#2CE3FF" "" . shorten 50
       , ppLayout = const "" -- to disable the layout info on xmobar
       }
