@@ -13,6 +13,7 @@ import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.SetWMName
 import           XMonad.Layout.ZoomRow
+import           XMonad.Util.SpawnOnce
 import qualified XMonad.StackSet              as W
 
 -- Some doc
