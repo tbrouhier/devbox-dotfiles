@@ -3,8 +3,8 @@ transparent true
 tint_level 40
 tint_color black
 dockapp_mode none
-geometry 2x1-350+0
-max_geometry 5x1-325-10
+geometry 1x1-325+0
+max_geometry 3x1-325-10
 background "#000000"
 kludges force_icons_size
 grow_gravity NE
