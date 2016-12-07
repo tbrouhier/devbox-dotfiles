@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 local LAMBDA="%(?:λ:%{$fg[red]%}λ %s)"
+local return_code="%(?..%{$fg_bold[red]%}%? ↵%{$reset_color%})"
 #if [[ "$USER" == "root" ]]; then USERCOLOR="red"; else USERCOLOR="yellow"; fi
 
 # Git sometimes goes into a detached head state. git_prompt_info doesn't
@@ -25,8 +26,7 @@ ${LAMBDA}\
 %{$fg[magenta]%} %3~\
  $(check_git_prompt_info)\
 %{$reset_color%}'
-
-RPROMPT=''
+RPROMPT="${return_code}"
 
 # Format for git_prompt_info()
 ZSH_THEME_GIT_PROMPT_PREFIX="at %{$fg[blue]%} "
