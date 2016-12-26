@@ -1,0 +1,72 @@
+#compdef cicd
+#
+#  Completion script for cicd
+
+local ret=1
+
+_zone () {compadd dev testing staging prod}
+
+_1commands=(
+   'facts:return static facts'
+   'ping:ping nodes'
+   'data:return configuration data by key'
+   'runpuppet:apply puppet configuration'
+   'sync:sync data between minions and the saltmaster'
+   'orch:apply an orchestration command'
+   'result:display command result'
+   'console:open console'
+)
+
+_2stackcommand () {
+    case $words[3] in
+        orch)
+            local -a options
+            options=('-s:stack stack name'
+                     '-h:display help'
+                    )
+            _describe 'values' options && ret=0
+            ;;
+        result)
+            local -a options
+            options=('-j:job id'
+                     '-n: number of result to display'
+                     '-h:display help'
+                    )
+            _describe 'values' options && ret=0
+            ;;
+        data)
+            local -a options
+            options=('-s:stack stack name'
+                     '-k:property to look at for'
+                     '-n:role name with optional subgroup separated by a dot'
+                     '-g:group name'
+                     '-h:display help'
+                    )
+            _describe 'values' options && ret=0
+            ;;
+        *)
+            local -a options
+            options=('-s:stack stack name'
+                     '-n:role name with optional subgroup separated by a dot'
+                     '-g:group name'
+                     '-h:display help'
+                    )
+            _describe 'values' options && ret=0
+            ;;
+    esac
+}
+
+
+if (( CURRENT == 2 )); then
+    _zone && ret=0
+fi
+
+if (( CURRENT == 3 )); then
+    _describe -t commands 'value' _1commands && ret=0
+fi
+
+if (( CURRENT == 4 )); then
+    _2stackcommand
+fi
+
+return ret
