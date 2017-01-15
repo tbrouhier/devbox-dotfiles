@@ -6,6 +6,11 @@ local ret=1
 
 _zone () {compadd dev testing staging prod}
 
+_node () {
+  local zone="$1"
+  compadd $(cat "$HOME/.local/share/cicd/.nodes-${zone}")
+}
+
 _1commands=(
    'facts:return static facts'
    'ping:ping nodes'
@@ -69,4 +74,11 @@ if (( CURRENT == 4 )); then
     _2stackcommand
 fi
 
+if (( CURRENT == 5 )); then
+    case $words[4] in
+        "-n")
+            _node $words[2]
+            ;;
+    esac
+fi
 return ret
