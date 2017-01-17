@@ -15,6 +15,7 @@ _1commands=(
    'facts:return static facts'
    'ping:ping nodes'
    'data:return configuration data by key'
+   'du:return disk usage'
    'runpuppet:apply puppet configuration'
    'sync:sync data between minions and the saltmaster'
    'orch:apply an orchestration command'
@@ -59,7 +60,7 @@ _2stackcommand () {
                     )
             _describe 'values' options && ret=0
             ;;
-        runpuppet)
+        runpuppet|du)
             local -a options
             options=('-s:stack stack name'
                      '-n:node fqdn'
