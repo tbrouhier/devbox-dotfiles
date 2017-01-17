@@ -13,3 +13,5 @@
 	compactionHeuristic = true
 [branch]
 	autosetuprebase = always
+[rebase]
+	autostash = true
