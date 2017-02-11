@@ -2,17 +2,15 @@
 -- xmonad config file.
 --
 
-import qualified Data.Map                     as M
 import           Data.Monoid
-import           Graphics.X11.ExtraTypes.XF86
 import           System.Exit
-
 import           XMonad
 import qualified XMonad.Actions.GridSelect as GridSelect
+
+import qualified Data.Map                     as M
+import           Graphics.X11.ExtraTypes.XF86
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
-import           XMonad.Hooks.UrgencyHook
-import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.SetWMName
 import           XMonad.Layout.ZoomRow
 import           XMonad.Util.SpawnOnce
@@ -112,9 +110,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
--- urgent notification
-urgentConfig :: UrgencyConfig
-urgentConfig = UrgencyConfig { suppressWhen = Focused, remindWhen = Dont }
 
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
@@ -170,9 +165,9 @@ azertyKeys conf@(XConfig {modMask = modm}) = M.fromList $
           (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
 main =
-  xmonad =<< statusBar "taffybar" defaultPP toggleStrutsKey (ewmh $ uhook myConfig)
+  xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
+
   where
-    uhook = withUrgencyHookC NoUrgencyHook urgentConfig
     toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
     myPP = xmobarPP
@@ -192,6 +187,5 @@ main =
       , keys               = \c -> azertyKeys c `M.union` myKeys c
       , mouseBindings      = myMouseBindings
       , layoutHook         = avoidStruts $ myLayout
-      , handleEventHook    = fullscreenEventHook <+> ewmhDesktopsEventHook
-      , startupHook        = myStartupHook <+> ewmhDesktopsStartup
+      , startupHook        = myStartupHook
       }
