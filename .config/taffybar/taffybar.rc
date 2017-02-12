@@ -45,3 +45,5 @@ widget "*Workspace-*-visible*" style "taffybar-workspace-border-visible"
 widget "*Workspace-*-empty*" style "taffybar-workspace-border-empty"
 widget "*Workspace-*-hidden*" style "taffybar-workspace-border-hidden"
 widget "*Workspace-*-urgent*" style "taffybar-workspace-border-urgent"
+
+gtk-font-name = "Monospace Bold 10"
