@@ -33,17 +33,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xK_F1 ), spawn "chromium file:///home/vagrant/.local/share/doc/devbox.html")
 
     -- launch dmenu
-    , ((modm, xK_p), GridSelect.spawnSelected GridSelect.defaultGSConfig [ "chromium" ])
+    , ((modm, xK_p), GridSelect.spawnSelected GridSelect.defaultGSConfig [ "eclipse", "chromium", "firefox" ])
 
     -- launch editor
     -- , ((modm .|. shiftMask, xK_comma ), spawn "emacsclient -c")
-    , ((modm .|. shiftMask, xK_comma ), spawn "emacs")
+    , ((modm .|. shiftMask, xK_comma ), spawn "vim")
 
     -- resize wallpaper
     , ((modm .|. shiftMask, xK_i), spawn "feh --bg-scale ${HOME}/.wallpaper.jpg" )
-
-    -- rebuild nixos
-    , ((modm .|. shiftMask, xK_r     ), spawn "sudo nixos-rebuild switch")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
