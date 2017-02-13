@@ -1,1 +1,1 @@
-.xmonad-taffybar.hs
+xmonad-taffybar.hs
