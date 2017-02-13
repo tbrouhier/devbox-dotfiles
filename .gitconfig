@@ -16,3 +16,6 @@
 	autosetuprebase = always
 [rebase]
 	autostash = true
+[user]
+	email = tbrouhier@cirb.brussels
+	name = Thomas Brouhier
