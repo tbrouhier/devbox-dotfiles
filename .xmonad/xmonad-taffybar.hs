@@ -9,6 +9,7 @@ import           System.Exit
 
 import           XMonad
 import qualified XMonad.Actions.GridSelect as GridSelect
+import           XMonad.Actions.CycleWS
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.UrgencyHook
@@ -96,6 +97,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+
+    , ((modm              , xK_Right ), nextWS)
+    , ((modm              , xK_Left  ), prevWS)
 
     ]
     ++
