@@ -33,7 +33,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_t), spawn $ XMonad.terminal conf)
 
     -- launch README
-    , ((0, xK_F1 ), spawn "chromium file:///home/vagrant/.local/share/doc/devbox.html")
+    , ((0, xK_F1 ), spawn "chromium file:///home/vagrant/.local/share/doc/devbox.html#_minimal_cheat_sheet")
 
     -- launch dmenu
     , ((modm, xK_p), GridSelect.spawnSelected GridSelect.defaultGSConfig [ "eclipse", "chromium", "firefox" ])
