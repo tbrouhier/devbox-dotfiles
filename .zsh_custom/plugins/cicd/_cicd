@@ -11,16 +11,36 @@ _node () {
   compadd $(cat "$HOME/.local/share/cicd/.nodes-${zone}")
 }
 
+_services () {
+  local zone="$1"
+  case $zone in
+      sandbox)
+          compadd nginx salt-master salt-minion jenkins puppetmaster puppetdb
+          ;;
+      dev)
+          compadd nginx salt-master salt-minion
+          ;;
+      testing|staging)
+          compadd nginx salt-master salt-minion
+          ;;
+      prod)
+          compadd nginx salt-master salt-minion postgrest-saltstack postgrest-saltstack_dev postgrest-saltstack_staging nexus jenkins puppetmaster puppetdb
+          ;;
+   esac
+}
+
 _1commands=(
    'facts:return static facts'
    'ping:ping nodes'
    'data:return configuration data by key'
    'du:return disk usage'
+   'service:service management on one node'
    'runpuppet:apply puppet configuration'
    'sync:sync data between minions and the saltmaster'
    'orch:apply an orchestration command'
    'result:display command result'
    'console:open console'
+   'gentags: generate node completion file'
 )
 
 _2stackcommand () {
@@ -69,6 +89,14 @@ _2stackcommand () {
                     )
             _describe 'values' options && ret=0
             ;;
+        service)
+            local servicecmd=(
+                             'status:service status'
+                             'reload:reload service'
+                             )
+            # _describe -t commands 'value' servicecmd && ret=0
+            compadd status reload && ret=0
+            ;;
     esac
 }
 
@@ -87,6 +115,18 @@ fi
 
 if (( CURRENT == 5 )); then
     case $words[4] in
+        "-n")
+            _node $words[2] && ret=0
+        ;;
+        status|reload)
+            _services $words[2] && ret=0
+        ;;
+    esac
+fi
+
+if (( CURRENT == 7 )); then
+    # echo "$words[5]"
+    case $words[6] in
         "-n")
             _node $words[2] && ret=0
             ;;
